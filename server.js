@@ -27,18 +27,16 @@ app.options("*", (req, res) => {
 app.post("/webhook", async (req, res) => {
     const { name, surname, attending, food, drink, child } = req.body;
 
-    // Agar foydalanuvchi hech narsa tanlamagan bo‘lsa, "Не указан" qilib qo‘yamiz
+   
     const attendingText = attending ? attending : "Не указан";
     const childText = child ? child : "Не указан";
 
-    console.log("Kelgan ma'lumot:", req.body); // 🔍 Backendda tekshirish
+    console.log("Kelgan ma'lumot:", req.body); 
 
     const message = `
 📩 *Новый RSVP Ответ:*
 👤 *Имя:* ${name} ${surname}
 📌 *Придет?* ${attendingText}
-🍽 *Блюдо:* ${food || "Не указан"}
-🍷 *Напиток:* ${drink || "Не указан"}
 👶 *С ребенком?* ${childText}
 `;
 
